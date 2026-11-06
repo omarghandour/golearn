@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/logger"
@@ -27,8 +28,14 @@ func main() {
 	// 3. Register Routes (including Swagger UI)
 	routes.SetupRoutes(app)
 
-	// 4. Start Server on port 8080
-	log.Println("Server is running on http://localhost:8080")
-	log.Println("Swagger UI is available at http://localhost:8080/swagger/")
-	log.Fatal(app.Listen(":8080"))
+	// 4. Determine Port (configurable via env, default 8080)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	// 5. Start Server
+	log.Printf("Server is running on port %s\n", port)
+	log.Printf("Swagger UI is available at http://localhost:%s/swagger/\n", port)
+	log.Fatal(app.Listen(":" + port))
 }

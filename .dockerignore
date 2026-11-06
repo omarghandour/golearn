@@ -1,0 +1,12 @@
+.git
+.gitignore
+README.md
+*.db
+*.db-journal
+*.db-wal
+test1
+server
+.env*
+.idea
+.vscode
+

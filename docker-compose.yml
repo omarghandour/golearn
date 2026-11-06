@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: golearn-api
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - DB_PATH=/data/books.db
+    volumes:
+      # Persist SQLite database outside the container
+      - book_data:/data
+    restart: unless-stopped
+
+volumes:
+  book_data:
+

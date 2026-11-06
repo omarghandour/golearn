@@ -30,11 +30,21 @@ A beginner-friendly RESTful CRUD application built to learn **Go**, the **Fiber 
 
 ## 🚀 How to Run
 
-1. **Run the server:**
+1. **Run locally:**
    ```bash
-   go run main.go
+   go run .
    ```
    *(The server will start at `http://localhost:8080` and automatically create the SQLite database file `books.db`)*
+
+2. **Run with Docker:**
+   ```bash
+   docker compose up --build
+   ```
+   *(Or using plain Docker with persistent volume)*:
+   ```bash
+   docker build -t golearn-api .
+   docker run -p 8080:8080 -v book_data:/data golearn-api
+   ```
 
 ---
 
