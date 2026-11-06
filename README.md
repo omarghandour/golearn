@@ -20,7 +20,12 @@ A beginner-friendly RESTful CRUD application built to learn **Go**, the **Fiber 
 │   └── book.go
 ├── routes/            # Route registrations & grouping
 │   └── routes.go
+├── views/             # Embedded HTML/Tailwind web dashboard
+│   ├── index.html
+│   └── views.go
 ├── main.go            # Application entry point
+├── Dockerfile         # Multi-stage production container
+├── docker-compose.yaml# Docker compose orchestration
 ├── books.db           # SQLite database file
 ├── go.mod
 └── go.sum
